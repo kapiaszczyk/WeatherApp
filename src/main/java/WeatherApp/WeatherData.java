@@ -9,10 +9,8 @@ public class WeatherData {
     private String tempC;
     private String dsc;
 
-    public void get() {
-        WeatherAPI api = new WeatherAPI();
-        parseJSON(api.makeCall("50.28", "19.10"));
-        printData(placeName, tempK, tempC, dsc);
+    public void getData(String response) {
+        parseJSON(response);
     }
 
     private void parseJSON(String response) {
@@ -23,10 +21,10 @@ public class WeatherData {
         dsc = obj.getJSONArray("weather").getJSONObject(0).getString("description");
     }
 
-    private void printData(String placeName, String tempF, String tempC, String dsc) {
-        System.out.println("Place: " + placeName);
-        System.out.println("Temperature: " + tempC + "C");
-        System.out.println("Description: " + dsc);
+    public void printData() {
+        System.out.println("Place: " + this.placeName);
+        System.out.println("Temperature: " + this.tempC + "C");
+        System.out.println("Description: " + this.dsc);
     }
 
     private String covertToCel(String temp) {
