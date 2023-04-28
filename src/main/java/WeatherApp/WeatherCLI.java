@@ -28,7 +28,7 @@ public class WeatherCLI {
     }
 
     private List<String> getParameters(){
-        List<String> parameters = new ArrayList<String>();
+        List<String> parameters = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
         System.out.println("Set latitude");
         parameters.add(scanner.nextLine());
