@@ -5,7 +5,6 @@ import org.json.JSONObject;
 public class WeatherData {
 
     private String placeName;
-    private String tempK;
     private String tempC;
     private String dsc;
 
@@ -16,7 +15,7 @@ public class WeatherData {
     private void parseJSON(String response) {
         JSONObject obj = new JSONObject(response);
         placeName = obj.getString("name");
-        tempK = obj.getJSONObject("main").getNumber("temp").toString();
+        String tempK = obj.getJSONObject("main").getNumber("temp").toString();
         tempC = covertToCel(tempK);
         dsc = obj.getJSONArray("weather").getJSONObject(0).getString("description");
     }
