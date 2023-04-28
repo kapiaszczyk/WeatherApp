@@ -28,4 +28,22 @@ public class WeatherCLI {
         return parameters;
     }
 
+    private String getCity() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Set city");
+        String cityInput = scanner.nextLine();
+        if (cityInput == null || cityInput.isEmpty() || cityInput.trim().isEmpty()) {
+            System.out.println("City cannot be empty");
+            getCity();
+        }
+        return cityInput;
+    }
+
+    private String getCity(String city) {
+        if ( city.isBlank() || city == null) {
+            throw new IllegalArgumentException("City cannot be empty");
+        }
+        return city;
+    }
+
 }
