@@ -93,4 +93,10 @@ public class WeatherData {
         this.description = description;
     }
 
+    public void getWeatherData(String response) {
+        WeatherDataParser weatherDataParser = new WeatherDataParser();
+        weatherDataParser.getData(response);
+        weatherDataParser.passToWeatherData(this);
+    }
+
 }
