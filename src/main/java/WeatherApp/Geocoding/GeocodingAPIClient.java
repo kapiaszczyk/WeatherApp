@@ -1,4 +1,4 @@
-package WeatherApp;
+package WeatherApp.Geocoding;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
