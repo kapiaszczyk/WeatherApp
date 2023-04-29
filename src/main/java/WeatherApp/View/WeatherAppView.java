@@ -1,6 +1,14 @@
 package WeatherApp.View;
 
+import java.util.Scanner;
+
 public class WeatherAppView {
+
+    public String getLocation() {
+        System.out.println("Enter a location: ");
+        Scanner scanner = new Scanner(System.in);
+        return scanner.nextLine();
+    }
     public void printWeatherData(String location,
                                  String temperature,
                                  String humidity,
