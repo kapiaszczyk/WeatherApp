@@ -1,7 +1,7 @@
 package WeatherApp.Presenter;
 import WeatherApp.Geocoding.GeocodingData;
-import WeatherApp.Model.WeatherAPIClient;
-import WeatherApp.Model.WeatherData;
+import WeatherApp.WeatherAPI.WeatherAPIClient;
+import WeatherApp.WeatherAPI.WeatherData;
 import WeatherApp.View.WeatherAppView;
 
 public class WeatherPresenter {

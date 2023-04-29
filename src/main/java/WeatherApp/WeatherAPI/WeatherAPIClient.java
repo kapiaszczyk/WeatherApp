@@ -1,4 +1,4 @@
-package WeatherApp.Model;
+package WeatherApp.WeatherAPI;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
