@@ -1,4 +1,4 @@
-package WeatherApp;
+package WeatherApp.Presenter;
 
 public class WeatherPresenter {
 
