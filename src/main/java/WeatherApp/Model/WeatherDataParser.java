@@ -27,12 +27,6 @@ public class WeatherDataParser {
         dsc = obj.getJSONArray("weather").getJSONObject(0).getString("description");
     }
 
-    public void printData() {
-        System.out.println("Place: " + this.placeName);
-        System.out.println("Temperature: " + this.tempC + "C");
-        System.out.println("Description: " + this.dsc);
-    }
-
     private String covertToCel(String temp) {
         double tempK = Double.parseDouble(temp);
         double tempC = (tempK - 273.15);
