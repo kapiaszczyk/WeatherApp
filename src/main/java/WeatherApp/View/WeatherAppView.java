@@ -1,5 +1,6 @@
 package WeatherApp.View;
 
+import java.time.LocalTime;
 import java.util.Scanner;
 
 public class WeatherAppView {
@@ -20,7 +21,7 @@ public class WeatherAppView {
                                  String sunrise,
                                  String sunset) {
 
-        System.out.println("Weather for " + location + ":");
+        System.out.println("Weather for " + location + " at " + LocalTime.now() + " local time: " + description);
         System.out.println("Temperature: " + temperature);
         System.out.println("Humidity: " + humidity);
         System.out.println("Pressure: " + pressure);
