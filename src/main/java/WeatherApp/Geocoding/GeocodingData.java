@@ -29,4 +29,12 @@ public class GeocodingData {
         this.location = location;
     }
 
+    public void getCoordinates(String locationInput) {
+        GeocodingAPIClient geocodingAPIClient = new GeocodingAPIClient();
+        GeocodingResponseParser geocodingResponseParser = new GeocodingResponseParser();
+        geocodingResponseParser.getData(geocodingAPIClient.makeCall(locationInput));
+        latitude = geocodingResponseParser.getLat();
+        longitude = geocodingResponseParser.getLon();
+        location = geocodingResponseParser.getPlaceName();
+    }
 }
