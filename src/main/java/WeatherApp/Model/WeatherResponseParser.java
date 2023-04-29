@@ -2,7 +2,7 @@ package WeatherApp.Model;
 
 import org.json.JSONObject;
 
-public class WeatherDataParser {
+public class WeatherResponseParser {
 
     private String location;
     private String temperature;
