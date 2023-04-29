@@ -33,6 +33,19 @@ public class WeatherDataParser {
         description = obj.getJSONArray("weather").getJSONObject(0).getString("description");
     }
 
+    public void passToWeatherData(WeatherData weatherData) {
+        weatherData.setLocation(location);
+        weatherData.setTemperature(temperature);
+        weatherData.setHumidity(humidity);
+        weatherData.setWindSpeed(windSpeed);
+        weatherData.setWindDirection(windDirection);
+        weatherData.setPressure(pressure);
+        weatherData.setSunrise(sunrise);
+        weatherData.setSunset(sunset);
+        weatherData.setClouds(clouds);
+        weatherData.setDescription(description);
+    }
+
     private String covertToCel(String temp) {
         double tempK = Double.parseDouble(temp);
         double tempC = (tempK - 273.15);
