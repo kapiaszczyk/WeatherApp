@@ -1,4 +1,4 @@
-package WeatherApp;
+package WeatherApp.Model;
 
 public class WeatherData {
 }
