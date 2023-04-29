@@ -10,6 +10,7 @@ public class WeatherAppView {
         return scanner.nextLine();
     }
     public void printWeatherData(String location,
+                                 String description,
                                  String temperature,
                                  String humidity,
                                  String pressure,
