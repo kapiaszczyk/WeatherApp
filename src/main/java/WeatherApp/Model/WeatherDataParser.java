@@ -4,9 +4,16 @@ import org.json.JSONObject;
 
 public class WeatherDataParser {
 
-    private String placeName;
-    private String tempC;
-    private String dsc;
+    private String location;
+    private String temperature;
+    private String humidity;
+    private String windSpeed;
+    private String windDirection;
+    private String pressure;
+    private String sunrise;
+    private String sunset;
+    private String clouds;
+    private String description;
 
     public void getData(String response) {
         parseJSON(response);
