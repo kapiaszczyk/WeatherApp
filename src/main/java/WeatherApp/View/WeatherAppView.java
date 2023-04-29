@@ -17,7 +17,7 @@ public class WeatherAppView {
                                  String pressure,
                                  String windSpeed,
                                  String windDirection,
-                                 String cloudiness,
+                                 String clouds,
                                  String sunrise,
                                  String sunset) {
 
@@ -27,7 +27,7 @@ public class WeatherAppView {
         System.out.println("Pressure: " + pressure);
         System.out.println("Wind Speed: " + windSpeed);
         System.out.println("Wind Direction: " + windDirection);
-        System.out.println("Cloudiness: " + cloudiness);
+        System.out.println("Clouds: " + clouds);
         System.out.println("Sunrise: " + sunrise);
         System.out.println("Sunset: " + sunset);
     }
