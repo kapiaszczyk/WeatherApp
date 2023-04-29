@@ -18,5 +18,10 @@ public class WeatherPresenter {
         geocodingData = new GeocodingData();
     }
 
+    public void getWeather() {
+        String location = view.getLocation();
+        geocodingData.getCoordinates(location);
+        weatherData.getWeatherData(weatherAPI.makeCall(geocodingData.getLatitude(), geocodingData.getLongitude()));
+    }
 
 }
