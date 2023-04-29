@@ -21,10 +21,16 @@ public class WeatherDataParser {
 
     private void parseJSON(String response) {
         JSONObject obj = new JSONObject(response);
-        placeName = obj.getString("name");
-        String tempK = obj.getJSONObject("main").getNumber("temp").toString();
-        tempC = covertToCel(tempK);
-        dsc = obj.getJSONArray("weather").getJSONObject(0).getString("description");
+        location = obj.getString("name");
+        temperature = covertToCel(obj.getJSONObject("main").getNumber("temp").toString());
+        humidity = obj.getJSONObject("main").getNumber("humidity").toString();
+        windSpeed = obj.getJSONObject("wind").getNumber("speed").toString();
+        windDirection = obj.getJSONObject("wind").getNumber("deg").toString();
+        pressure = obj.getJSONObject("main").getNumber("pressure").toString();
+        sunrise = obj.getJSONObject("sys").getNumber("sunrise").toString();
+        sunset = obj.getJSONObject("sys").getNumber("sunset").toString();
+        clouds = obj.getJSONObject("clouds").getNumber("all").toString();
+        description = obj.getJSONArray("weather").getJSONObject(0).getString("description");
     }
 
     private String covertToCel(String temp) {
