@@ -31,11 +31,18 @@ public class GeocodingResponseParser {
     }
 
     private void parseJSON(String response) {
-        JSONArray jsonArray = new JSONArray(response);
-        JSONObject obj = jsonArray.getJSONObject(0);
-        lat = (obj.getBigDecimal("lat")).toString();
-        lon = (obj.getBigDecimal("lon")).toString();
-        placeName = obj.getString("name");
+        if (response.isEmpty() || response == null || response.trim().isEmpty()) {
+            throw new IllegalArgumentException("Geocoding API response is empty");
+        }
+        try {
+            JSONArray jsonArray = new JSONArray(response);
+            JSONObject obj = jsonArray.getJSONObject(0);
+            lat = (obj.getBigDecimal("lat")).toString();
+            lon = (obj.getBigDecimal("lon")).toString();
+            placeName = obj.getString("name");
+        } catch (Exception e) {
+            throw new IllegalArgumentException("Geocoding API response is invalid");
+        }
     }
 
 }
