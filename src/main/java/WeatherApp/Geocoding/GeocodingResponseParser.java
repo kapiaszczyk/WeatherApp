@@ -8,7 +8,6 @@ public class GeocodingResponseParser {
     String lat;
     String lon;
     String placeName;
-    String country;
 
     public String getLat() {
         return lat;
@@ -22,9 +21,6 @@ public class GeocodingResponseParser {
         return placeName;
     }
 
-    public String getCountry() {
-        return country;
-    }
 
     public void getData(String response) {
         parseJSON(response);
