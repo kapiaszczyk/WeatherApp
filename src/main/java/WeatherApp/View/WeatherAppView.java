@@ -22,13 +22,13 @@ public class WeatherAppView {
                                  String sunset) {
 
         System.out.println("Weather for " + location + " at " + LocalTime.now() + " local time: " + description);
-        System.out.println("Temperature: " + temperature);
-        System.out.println("Humidity: " + humidity);
-        System.out.println("Pressure: " + pressure);
-        System.out.println("Wind Speed: " + windSpeed);
-        System.out.println("Wind Direction: " + windDirection);
-        System.out.println("Clouds: " + clouds);
-        System.out.println("Sunrise: " + sunrise);
-        System.out.println("Sunset: " + sunset);
+        System.out.println("Temperature: " + temperature + "Celsius degrees");
+        System.out.println("Humidity: " + humidity + "%");
+        System.out.println("Pressure: " + pressure + " hPa");
+        System.out.println("Wind Speed: " + windSpeed + " m/s");
+        System.out.println("Wind Direction: " + windDirection + "degrees");
+        System.out.println("Clouds: " + clouds + "%");
+        System.out.println("Sunrise: " + sunrise + " local time");
+        System.out.println("Sunset: " + sunset + " local time");
     }
 }
