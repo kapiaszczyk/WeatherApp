@@ -1,5 +1,6 @@
 package WeatherApp.Weather;
 
+import WeatherApp.WeatherAPI.WeatherData;
 import WeatherApp.WeatherAPI.WeatherResponseParser;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
