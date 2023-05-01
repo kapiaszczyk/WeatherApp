@@ -50,4 +50,10 @@ public class WeatherResponseParserTest {
         Assertions.assertThrows(IllegalArgumentException.class, () -> weatherResponseParser.getData(" "));
     }
 
+    @Test
+    public void parseJSONInvalidDataTest() {
+        WeatherResponseParser weatherResponseParser = new WeatherResponseParser();
+        Assertions.assertThrows(IllegalArgumentException.class, () -> weatherResponseParser.getData("invalid data"));
+    }
+
 }
