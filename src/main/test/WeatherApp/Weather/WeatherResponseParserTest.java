@@ -1,5 +1,4 @@
 package WeatherApp.Weather;
-
 import WeatherApp.WeatherAPI.WeatherData;
 import WeatherApp.WeatherAPI.WeatherResponseParser;
 import org.junit.jupiter.api.Assertions;
@@ -31,6 +30,24 @@ public class WeatherResponseParserTest {
         weatherResponseParser.getData(getTestData());
         weatherResponseParser.passToWeatherData(weatherData);
         Assertions.assertEquals("scattered clouds", weatherData.getDescription());
+    }
+
+    @Test
+    public void getEmptyDataTest() {
+        WeatherResponseParser weatherResponseParser = new WeatherResponseParser();
+        Assertions.assertThrows(IllegalArgumentException.class, () -> weatherResponseParser.getData(""));
+    }
+
+    @Test
+    public void getNullDataTest() {
+        WeatherResponseParser weatherResponseParser = new WeatherResponseParser();
+        Assertions.assertThrows(IllegalArgumentException.class, () -> weatherResponseParser.getData(null));
+    }
+
+    @Test
+    public void getBlankDataTest() {
+        WeatherResponseParser weatherResponseParser = new WeatherResponseParser();
+        Assertions.assertThrows(IllegalArgumentException.class, () -> weatherResponseParser.getData(" "));
     }
 
 }
