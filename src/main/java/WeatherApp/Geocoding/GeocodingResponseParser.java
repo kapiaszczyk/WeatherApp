@@ -23,6 +23,9 @@ public class GeocodingResponseParser {
 
 
     public void getData(String response) {
+        if (response == null || response.isEmpty() || response.trim().isEmpty()) {
+            throw new IllegalArgumentException("Geocoding API response is empty");
+        }
         parseJSON(response);
     }
 
