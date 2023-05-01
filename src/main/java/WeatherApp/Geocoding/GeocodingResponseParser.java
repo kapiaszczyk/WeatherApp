@@ -2,6 +2,8 @@ package WeatherApp.Geocoding;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class GeocodingResponseParser {
 
@@ -41,6 +43,16 @@ public class GeocodingResponseParser {
             placeName = obj.getString("name");
         } catch (Exception e) {
             throw new IllegalArgumentException("Geocoding API response is invalid");
+        }
+    }
+
+    private void printResponse(String response) {
+        try {
+            FileWriter fileWriter = new FileWriter("src/main/test/GeocodingAPITestData.JSON");
+            fileWriter.write(response);
+            fileWriter.close();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
