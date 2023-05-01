@@ -20,7 +20,7 @@ public class WeatherPresenter {
 
     public void getWeather() {
         String location = view.getLocation();
-        if (location == null || location.isEmpty() || location.isBlank()) {
+        if (location == null || location.isEmpty() || location.isBlank() || !location.matches("^[a-zA-Z ]*$")) {
             throw new IllegalArgumentException("Location cannot be null, empty, or blank");
         }
         geocodingData.getCoordinates(location);
@@ -28,7 +28,7 @@ public class WeatherPresenter {
     }
 
     public void getWeather(String location) {
-        if (location == null || location.isEmpty() || location.isBlank()) {
+        if (location == null || location.isEmpty() || location.isBlank() || !location.matches("^[a-zA-Z ]*$")) {
             throw new IllegalArgumentException("Location cannot be null, empty, or blank");
         }
         geocodingData.getCoordinates(location);
