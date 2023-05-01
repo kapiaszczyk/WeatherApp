@@ -20,11 +20,17 @@ public class WeatherPresenter {
 
     public void getWeather() {
         String location = view.getLocation();
+        if (location == null || location.isEmpty() || location.isBlank()) {
+            throw new IllegalArgumentException("Location cannot be null, empty, or blank");
+        }
         geocodingData.getCoordinates(location);
         weatherData.getWeatherData(weatherAPI.makeCall(geocodingData.getLatitude(), geocodingData.getLongitude()));
     }
 
     public void getWeather(String location) {
+        if (location == null || location.isEmpty() || location.isBlank()) {
+            throw new IllegalArgumentException("Location cannot be null, empty, or blank");
+        }
         geocodingData.getCoordinates(location);
         weatherData.getWeatherData(weatherAPI.makeCall(geocodingData.getLatitude(), geocodingData.getLongitude()));
     }
