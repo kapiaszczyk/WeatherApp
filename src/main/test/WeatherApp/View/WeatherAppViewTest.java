@@ -1,3 +1,5 @@
+package WeatherApp.View;
+
 import WeatherApp.Presenter.WeatherPresenter;
 import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;
