@@ -1,0 +1,44 @@
+{
+  "coord": {
+    "lon": 19.0216,
+    "lat": 50.2599
+  },
+  "weather": [
+    {
+      "id": 800,
+      "main": "Clear",
+      "description": "clear sky",
+      "icon": "01d"
+    }
+  ],
+  "base": "stations",
+  "main": {
+    "temp": 291.55,
+    "feels_like": 290.39,
+    "temp_min": 290.33,
+    "temp_max": 292.23,
+    "pressure": 1018,
+    "humidity": 36
+  },
+  "visibility": 10000,
+  "wind": {
+    "speed": 3.13,
+    "deg": 126,
+    "gust": 5.81
+  },
+  "clouds": {
+    "all": 7
+  },
+  "dt": 1682943151,
+  "sys": {
+    "type": 2,
+    "id": 2020678,
+    "country": "PL",
+    "sunrise": 1682911214,
+    "sunset": 1682964102
+  },
+  "timezone": 7200,
+  "id": 3095030,
+  "name": "Koszutka",
+  "cod": 200
+}
