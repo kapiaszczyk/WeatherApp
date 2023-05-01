@@ -57,7 +57,7 @@ public class WeatherResponseParser {
 
     private void printResponse(String response) {
         try {
-            FileWriter fileWriter = new FileWriter("src/main/java/WeatherApp/WeatherAPI/response.JSON");
+            FileWriter fileWriter = new FileWriter("src/main/test/WeatherAPITestData.JSON");
             fileWriter.write(response);
             fileWriter.close();
         } catch (IOException e) {
