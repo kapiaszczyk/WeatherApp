@@ -19,6 +19,9 @@ public class WeatherResponseParser {
     private String description;
 
     public void getData(String response) {
+        if (response == null || response.isEmpty() || response.trim().isEmpty()) {
+            throw new IllegalArgumentException("Weather API response is empty");
+        }
         parseJSON(response);
     }
 
