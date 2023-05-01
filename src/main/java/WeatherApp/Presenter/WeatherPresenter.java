@@ -24,6 +24,12 @@ public class WeatherPresenter {
         weatherData.getWeatherData(weatherAPI.makeCall(geocodingData.getLatitude(), geocodingData.getLongitude()));
     }
 
+    public void getWeather(String location) {
+        geocodingData.getCoordinates(location);
+        weatherData.getWeatherData(weatherAPI.makeCall(geocodingData.getLatitude(), geocodingData.getLongitude()));
+    }
+
+
     public void showWeather() {
         view.printWeatherData(
                 weatherData.getLocation(),
