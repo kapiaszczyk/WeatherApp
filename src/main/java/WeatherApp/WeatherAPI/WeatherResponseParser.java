@@ -26,17 +26,21 @@ public class WeatherResponseParser {
     }
 
     private void parseJSON(String response) {
-        JSONObject obj = new JSONObject(response);
-        location = obj.getString("name");
-        temperature = covertToCel(obj.getJSONObject("main").getNumber("temp").toString());
-        humidity = obj.getJSONObject("main").getNumber("humidity").toString();
-        windSpeed = obj.getJSONObject("wind").getNumber("speed").toString();
-        windDirection = obj.getJSONObject("wind").getNumber("deg").toString();
-        pressure = obj.getJSONObject("main").getNumber("pressure").toString();
-        sunrise = obj.getJSONObject("sys").getNumber("sunrise").toString();
-        sunset = obj.getJSONObject("sys").getNumber("sunset").toString();
-        clouds = obj.getJSONObject("clouds").getNumber("all").toString();
-        description = obj.getJSONArray("weather").getJSONObject(0).getString("description");
+        try {
+            JSONObject obj = new JSONObject(response);
+            location = obj.getString("name");
+            temperature = covertToCel(obj.getJSONObject("main").getNumber("temp").toString());
+            humidity = obj.getJSONObject("main").getNumber("humidity").toString();
+            windSpeed = obj.getJSONObject("wind").getNumber("speed").toString();
+            windDirection = obj.getJSONObject("wind").getNumber("deg").toString();
+            pressure = obj.getJSONObject("main").getNumber("pressure").toString();
+            sunrise = obj.getJSONObject("sys").getNumber("sunrise").toString();
+            sunset = obj.getJSONObject("sys").getNumber("sunset").toString();
+            clouds = obj.getJSONObject("clouds").getNumber("all").toString();
+            description = obj.getJSONArray("weather").getJSONObject(0).getString("description");
+        } catch (Exception e) {
+            throw new IllegalArgumentException("Weather API response is invalid");
+        }
     }
 
     public void passToWeatherData(WeatherData weatherData) {
