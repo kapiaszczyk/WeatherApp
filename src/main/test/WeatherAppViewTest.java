@@ -28,4 +28,12 @@ public class WeatherAppViewTest {
         });
     }
 
+    @Test
+    public void testNonWordLocationGetWeather() {
+        WeatherPresenter presenter = new WeatherPresenter();
+        Assert.assertThrows(IllegalArgumentException.class, () -> {
+            presenter.getWeather("123");
+        });
+    }
+
 }
