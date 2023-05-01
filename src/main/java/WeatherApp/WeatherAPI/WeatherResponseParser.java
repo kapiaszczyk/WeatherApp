@@ -2,6 +2,9 @@ package WeatherApp.WeatherAPI;
 
 import org.json.JSONObject;
 
+import java.io.FileWriter;
+import java.io.IOException;
+
 public class WeatherResponseParser {
 
     private String location;
@@ -50,5 +53,15 @@ public class WeatherResponseParser {
         double tempK = Double.parseDouble(temp);
         double tempC = (tempK - 273.15);
         return String.format("%.2f", tempC);
+    }
+
+    private void printResponse(String response) {
+        try {
+            FileWriter fileWriter = new FileWriter("src/main/java/WeatherApp/WeatherAPI/response.JSON");
+            fileWriter.write(response);
+            fileWriter.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
