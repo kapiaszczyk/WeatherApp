@@ -1,7 +1,7 @@
 package WeatherApp.Weather;
 
 import WeatherApp.WeatherAPI.WeatherResponseParser;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.io.BufferedReader;
@@ -24,6 +24,15 @@ public class WeatherResponseParserTest {
             e.printStackTrace();
         }
         return null;
+    }
+
+    @Test
+    public void getDataTest() {
+        WeatherResponseParser weatherResponseParser = new WeatherResponseParser();
+        WeatherData weatherData = new WeatherData();
+        weatherResponseParser.getData(getTestData());
+        weatherResponseParser.passToWeatherData(weatherData);
+        Assertions.assertEquals("scattered clouds", weatherData.getDescription());
     }
 
 }
