@@ -20,15 +20,14 @@ public class WeatherAppView {
                                  String clouds,
                                  String sunrise,
                                  String sunset) {
-
-        System.out.println("Weather for " + location + " at " + LocalTime.now() + " local time: " + description);
-        System.out.println("Temperature: " + temperature + " Celsius degrees");
-        System.out.println("Humidity: " + humidity + "%");
-        System.out.println("Pressure: " + pressure + " hPa");
-        System.out.println("Wind Speed: " + windSpeed + " m/s");
-        System.out.println("Wind Direction: " + windDirection + " degrees");
-        System.out.println("Clouds: " + clouds + "%");
-        System.out.println("Sunrise: " + sunrise + " local time");
-        System.out.println("Sunset: " + sunset + " local time");
+        System.out.printf("Weather for %s at %s local time: %s%n", location, LocalTime.now(), description);
+        System.out.printf("Temperature: %s Celsius degrees%n", temperature);
+        System.out.printf("Humidity: %s%%%n", humidity);
+        System.out.printf("Pressure: %s hPa%n", pressure);
+        System.out.printf("Wind Speed: %s m/s%n", windSpeed);
+        System.out.printf("Wind Direction: %s degrees%n", windDirection);
+        System.out.printf("Clouds: %s%%%n", clouds);
+        System.out.printf("Sunrise: %s local time%n", sunrise);
+        System.out.printf("Sunset: %s local time%n", sunset);
     }
 }
