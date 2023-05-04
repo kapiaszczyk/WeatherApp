@@ -1,6 +1,7 @@
 package WeatherApp.View;
 
 import java.time.LocalTime;
+import java.time.temporal.ChronoUnit;
 import java.util.Scanner;
 
 public class WeatherAppView {
@@ -20,7 +21,7 @@ public class WeatherAppView {
                                  String clouds,
                                  String sunrise,
                                  String sunset) {
-        System.out.printf("Weather for %s at %s local time: %s%n", location, LocalTime.now(), description);
+        System.out.printf("Weather for %s at %s local time: %s%n", location, LocalTime.now().truncatedTo(ChronoUnit.MINUTES), description);
         System.out.printf("Temperature: %s Celsius degrees%n", temperature);
         System.out.printf("Humidity: %s%%%n", humidity);
         System.out.printf("Pressure: %s hPa%n", pressure);
