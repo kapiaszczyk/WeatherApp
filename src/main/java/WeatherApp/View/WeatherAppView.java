@@ -21,6 +21,11 @@ public class WeatherAppView {
                                  String clouds,
                                  String sunrise,
                                  String sunset) {
+
+        if (location == null || description == null || temperature == null || humidity == null || pressure == null || windSpeed == null || windDirection == null || clouds == null || sunrise == null || sunset == null) {
+            throw new NullPointerException("Some weather data was null");
+        }
+
         System.out.printf("Weather for %s at %s local time: %s%n", location, LocalTime.now().truncatedTo(ChronoUnit.MINUTES), description);
         System.out.printf("Temperature: %s Celsius degrees%n", temperature);
         System.out.printf("Humidity: %s%%%n", humidity);
