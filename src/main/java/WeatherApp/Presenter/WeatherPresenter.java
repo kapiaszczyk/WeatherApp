@@ -37,18 +37,23 @@ public class WeatherPresenter {
 
 
     public void showWeather() {
-        view.printWeatherData(
-                weatherData.getLocation(),
-                weatherData.getDescription(),
-                weatherData.getTemperature(),
-                weatherData.getHumidity(),
-                weatherData.getPressure(),
-                weatherData.getWindSpeed(),
-                weatherData.getWindDirection(),
-                weatherData.getClouds(),
-                weatherData.getSunrise(),
-                weatherData.getSunset()
-        );
+        try {
+            view.printWeatherData(
+                    weatherData.getLocation(),
+                    weatherData.getDescription(),
+                    weatherData.getTemperature(),
+                    weatherData.getHumidity(),
+                    weatherData.getPressure(),
+                    weatherData.getWindSpeed(),
+                    weatherData.getWindDirection(),
+                    weatherData.getClouds(),
+                    weatherData.getSunrise(),
+                    weatherData.getSunset()
+            );
+        }
+        catch (NullPointerException e) {
+            throw new NullPointerException("Weather data was null");
+        }
     }
 
 }
