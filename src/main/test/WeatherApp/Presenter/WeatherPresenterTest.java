@@ -28,4 +28,10 @@ public class WeatherPresenterTest {
         WeatherPresenter presenter = new WeatherPresenter();
         Assert.assertThrows(IllegalArgumentException.class, () -> presenter.getWeather("123"));
     }
+
+    @Test
+    public void testNullShowWeather() {
+        WeatherPresenter presenter = new WeatherPresenter();
+        Assert.assertThrows(NullPointerException.class, () -> presenter.showWeather());
+    }
 }
