@@ -1,5 +1,7 @@
 package WeatherApp.Geocoding;
 
+import WeatherApp.Exceptions.EmptyAPIResponse;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -11,6 +13,8 @@ import java.net.http.HttpResponse;
 public class GeocodingAPIClient {
 
     public String makeCall(String location) {
+
+        location = encodeLocation(location);
 
         String url = "http://api.openweathermap.org/geo/1.0/direct?" + "q=" + location + "&limit=1" + "&appid=" + getKey();
 
@@ -39,6 +43,14 @@ public class GeocodingAPIClient {
             e.printStackTrace();
         }
         return null;
+    }
+
+    private String encodeLocation(String location) {
+        String replaced = location;
+        if (location.contains(" ")) {
+            replaced = location.replace(" ", "%20");
+        }
+        return replaced;
     }
 
 }

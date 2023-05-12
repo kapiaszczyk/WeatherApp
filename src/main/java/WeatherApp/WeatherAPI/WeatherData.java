@@ -1,5 +1,8 @@
 package WeatherApp.WeatherAPI;
 
+import java.time.LocalTime;
+import java.time.temporal.ChronoUnit;
+
 public class WeatherData {
 
     private String location;
@@ -66,7 +69,7 @@ public class WeatherData {
     }
 
     public void setSunrise(String sunrise) {
-        this.sunrise = sunrise;
+        this.sunrise = convertTime(Long.parseLong(sunrise));
     }
 
     public String getSunset() {
@@ -74,7 +77,7 @@ public class WeatherData {
     }
 
     public void setSunset(String sunset) {
-        this.sunset = sunset;
+        this.sunset = convertTime(Long.parseLong(sunset));
     }
 
     public String getClouds() {
@@ -97,6 +100,13 @@ public class WeatherData {
         WeatherResponseParser weatherDataParser = new WeatherResponseParser();
         weatherDataParser.getData(response);
         weatherDataParser.passToWeatherData(this);
+    }
+
+    private String convertTime(long unixSeconds) {
+        if (unixSeconds == 0) throw new IllegalArgumentException("Unix time cannot be 0");
+        java.util.Date date = new java.util.Date(unixSeconds*1000L);
+        LocalTime convertedTime = date.toInstant().atZone(java.time.ZoneId.systemDefault()).toLocalTime().truncatedTo(ChronoUnit.MINUTES);
+        return convertedTime.toString();
     }
 
 }
