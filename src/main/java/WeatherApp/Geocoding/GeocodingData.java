@@ -9,8 +9,16 @@ public class GeocodingData {
         return latitude;
     }
 
+    public String setLatitude(String latitude) {
+        return this.latitude = latitude;
+    }
+
     public String getLongitude() {
         return longitude;
+    }
+
+    public String setLongitude(String longitude) {
+        return this.longitude = longitude;
     }
 
     public String getLocation() {
@@ -36,5 +44,8 @@ public class GeocodingData {
             throw new IllegalArgumentException("Location cannot be empty");
         }
     }
+
+
+
 
 }
