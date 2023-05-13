@@ -7,10 +7,13 @@ public class WeatherArguments {
     private List<String> coordinates;
     private String units;
 
-    public WeatherArguments(String location, List<String> coordinates, String units) {
+    private String fileName;
+
+    public WeatherArguments(String location, List<String> coordinates, String units, String fileName) {
         this.location = location;
         this.coordinates = coordinates;
         this.units = units;
+        this.fileName = fileName;
     }
 
     public WeatherArguments() {
@@ -38,5 +41,13 @@ public class WeatherArguments {
 
     public void setUnits(String units) {
         this.units = units;
+    }
+
+    public void setWriteToFile(String fileName) {
+        this.fileName = fileName;
+    }
+
+    public String getFileName() {
+        return fileName;
     }
 }
