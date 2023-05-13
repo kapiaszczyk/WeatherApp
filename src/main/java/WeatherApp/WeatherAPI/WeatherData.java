@@ -16,6 +16,8 @@ public class WeatherData {
     private String clouds;
     private String description;
 
+    private String response;
+
     public String getLocation() {
         return location;
     }
@@ -96,9 +98,22 @@ public class WeatherData {
         this.description = description;
     }
 
-    public void getWeatherData(String response) {
+    public String getResponse() {
+        return response;
+    }
+
+    public void setResponse(String response) {
+        this.response = response;
+    }
+
+    public void setupWeatherData(String response) {
+        this.response = response;
+        getWeatherData();
+    }
+
+    public void getWeatherData() {
         WeatherResponseParser weatherDataParser = new WeatherResponseParser();
-        weatherDataParser.getData(response);
+        weatherDataParser.getData(this.response);
         weatherDataParser.passToWeatherData(this);
     }
 
