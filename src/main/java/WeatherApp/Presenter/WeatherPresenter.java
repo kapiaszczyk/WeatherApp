@@ -1,6 +1,7 @@
 package WeatherApp.Presenter;
 import WeatherApp.Geocoding.GeocodingData;
 import WeatherApp.Util.WeatherArguments;
+import WeatherApp.Util.WeatherDataFileWriter;
 import WeatherApp.WeatherAPI.WeatherAPIClient;
 import WeatherApp.WeatherAPI.WeatherData;
 import WeatherApp.View.WeatherAppView;
@@ -56,7 +57,8 @@ public class WeatherPresenter {
     }
 
     public void printToFile(String fileName) {
-        weatherData.printWeatherDataToFile(fileName);
+        WeatherDataFileWriter weatherDataFileWriter = new WeatherDataFileWriter();
+        weatherDataFileWriter.writeToFile(weatherData.getResponse(), fileName);
     }
 
 
