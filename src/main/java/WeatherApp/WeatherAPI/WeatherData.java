@@ -124,4 +124,10 @@ public class WeatherData {
         return convertedTime.toString();
     }
 
+    public void printWeatherDataToFile(String fileName) {
+        WeatherResponseParser weatherDataParser = new WeatherResponseParser();
+        weatherDataParser.getData(this.response);
+        weatherDataParser.printResponse(this.response, fileName);
+    }
+
 }
