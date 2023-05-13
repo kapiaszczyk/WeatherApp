@@ -8,7 +8,7 @@ public class WeatherApp {
 
         ArgumentParser parser = new ArgumentParser();
         WeatherPresenter presenter = new WeatherPresenter();
-        presenter.getWeather(parser.parse(args));
+        presenter.setupPresenter(parser.parse(args));
         presenter.showWeather();
     }
 }

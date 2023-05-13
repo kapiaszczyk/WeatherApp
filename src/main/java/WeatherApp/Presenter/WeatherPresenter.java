@@ -5,6 +5,8 @@ import WeatherApp.WeatherAPI.WeatherAPIClient;
 import WeatherApp.WeatherAPI.WeatherData;
 import WeatherApp.View.WeatherAppView;
 
+import java.util.List;
+
 public class WeatherPresenter {
 
     private final WeatherAppView view;
@@ -19,33 +21,42 @@ public class WeatherPresenter {
         geocodingData = new GeocodingData();
     }
 
-    public void getWeather() {
-        String location = view.getLocation();
-        if (location == null || location.isEmpty() || location.isBlank() || !location.matches("^[a-zA-Z ]*$")) {
-            throw new IllegalArgumentException("Location cannot be null, empty, or blank");
+
+    public void setupPresenter(WeatherArguments weatherArguments) {
+        if (weatherArguments.getLocation() != null) {
+            getWeather(weatherArguments.getLocation());
+        } else if (weatherArguments.getCoordinates() != null) {
+            getWeather(weatherArguments.getCoordinates());
+        } else {
+            throw new IllegalArgumentException("No location or coordinates provided");
         }
-        geocodingData.getCoordinates(location);
-        weatherData.getWeatherData(weatherAPI.makeCall(geocodingData.getLatitude(), geocodingData.getLongitude()));
+        if (weatherArguments.getFileName() != null) {
+            printToFile(weatherArguments.getFileName());
+        }
     }
 
     public void getWeather(String location) {
         if (location == null || location.isEmpty() || location.isBlank() || !location.matches("^[a-zA-Z ]*$")) {
-            throw new IllegalArgumentException("Location cannot be null, empty, or blank");
+            throw new IllegalArgumentException("Invalid location");
         }
         geocodingData.getCoordinates(location);
-        weatherData.getWeatherData(weatherAPI.makeCall(geocodingData.getLatitude(), geocodingData.getLongitude()));
+        getWeatherFromAPI(geocodingData);
     }
 
-    public void getWeather(WeatherArguments weatherArguments) {
-        if (weatherArguments.getLocation() != null) {
-            geocodingData.getCoordinates(weatherArguments.getLocation());
-        } else if (weatherArguments.getCoordinates() != null) {
-            geocodingData.setLatitude(weatherArguments.getCoordinates().get(0));
-            geocodingData.setLongitude(weatherArguments.getCoordinates().get(1));
-        } else {
-            geocodingData.getCoordinates(view.getLocation());
+    public void getWeather(List<String> coordinates) {
+        if (coordinates != null && !coordinates.isEmpty()) {
+            geocodingData.setLatitude(coordinates.get(0));
+            geocodingData.setLongitude(coordinates.get(1));
         }
-        weatherData.getWeatherData(weatherAPI.makeCall(geocodingData.getLatitude(), geocodingData.getLongitude()));
+        getWeatherFromAPI(geocodingData);
+    }
+
+    public void getWeatherFromAPI(GeocodingData geocodingData) {
+        weatherData.setupWeatherData(weatherAPI.makeCall(geocodingData.getLatitude(), geocodingData.getLongitude()));
+    }
+
+    public void printToFile(String fileName) {
+        weatherData.printWeatherDataToFile(fileName);
     }
 
 
