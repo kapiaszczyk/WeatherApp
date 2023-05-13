@@ -1,12 +1,11 @@
 # WeatherApp
 
-WeatherApp is a simple Java CLI app that calls OpenWeatherMap API to get information about the current weather in a given location.
-The location coordinates are determined by calling the Geocoding API from OpenWeatherMap.
+WeatherApp is a simple Java CLI app that calls OpenWeatherMap API to get information about the current weather in a given location. The location can be passed in two ways: by a location name or its coordinates.
 
 ## Getting Started
 
 ### Set-up
-To properly function, WeatherApp requires an OpenWeatherMapAPI key to be placed in the "key.txt" file, in the `...src/main/java/WeatherApp`  directory. **Remember, do not publish your API keys on GitHub!*** 
+To properly function, WeatherApp requires an OpenWeatherMapAPI key to be placed in the "key.txt" file, in the `...src/main/java/WeatherApp`  directory. **Remember, do not publish your API keys on GitHub!**
 
 ### Usage
 The app can be run from the command line by typing `java -jar WeatherApp.jar` in the `.../target` directory. 
@@ -25,7 +24,7 @@ To get help, run the app with the `-h` or `--help` argument.
 ### Output
 The app will output the following information:
 ```
-Weather for [location] at [HH:MM] local time: [weather description
+Weather for [location] at [HH:MM] local time: [weather description]
 Temperature: [temperature] Celsius degrees
 Humidity: [humidity]%
 Pressure: [pressure] hPa
