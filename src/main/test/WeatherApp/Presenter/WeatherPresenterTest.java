@@ -8,7 +8,7 @@ public class WeatherPresenterTest {
     @Test
     public void testNullGetWeather() {
         WeatherPresenter presenter = new WeatherPresenter();
-        Assert.assertThrows(IllegalArgumentException.class, () -> presenter.getWeather(null));
+        Assert.assertThrows(IllegalArgumentException.class, () -> presenter.getWeather((String) null));
     }
 
     @Test

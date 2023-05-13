@@ -27,7 +27,8 @@ public class WeatherDataTest {
     @Test
     public void getDataTest() {
         WeatherData weatherData = new WeatherData();
-        weatherData.getWeatherData(getTestData());
+        weatherData.setupWeatherData(getTestData());
+        weatherData.getWeatherData();
         assertEquals("scattered clouds", weatherData.getDescription());
     }
 }
