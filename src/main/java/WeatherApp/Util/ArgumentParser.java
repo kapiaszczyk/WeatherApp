@@ -19,6 +19,7 @@ public class ArgumentParser {
         options.addOption("l", "location", true, "Location to get weather data for");
         options.addOption("c", "coordinates", true, "Coordinates to get weather data for [Latitude,Longitude]");
         options.addOption("u", "units", true, "Units to display weather data in [C or F]");
+        options.addOption("w", "writeToFile", true, "Write weather data to file");
         options.addOption("h", "help", false, "Display help");
     }
 
@@ -40,6 +41,9 @@ public class ArgumentParser {
             }
             if (cmd.hasOption("u")) {
                 weatherArguments.setUnits(cmd.getOptionValue("u"));
+            }
+            if (cmd.hasOption("w")) {
+                weatherArguments.setWriteToFile(cmd.getOptionValue("w"));
             }
         } catch (ParseException e) {
             System.out.println("Error parsing command line arguments");
