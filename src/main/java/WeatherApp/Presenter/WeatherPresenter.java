@@ -36,6 +36,18 @@ public class WeatherPresenter {
         weatherData.getWeatherData(weatherAPI.makeCall(geocodingData.getLatitude(), geocodingData.getLongitude()));
     }
 
+    public void getWeather(WeatherArguments weatherArguments) {
+        if (weatherArguments.getLocation() != null) {
+            geocodingData.getCoordinates(weatherArguments.getLocation());
+        } else if (weatherArguments.getCoordinates() != null) {
+            geocodingData.setLatitude(weatherArguments.getCoordinates().get(0));
+            geocodingData.setLongitude(weatherArguments.getCoordinates().get(1));
+        } else {
+            geocodingData.getCoordinates(view.getLocation());
+        }
+        weatherData.getWeatherData(weatherAPI.makeCall(geocodingData.getLatitude(), geocodingData.getLongitude()));
+    }
+
 
     public void showWeather() {
         try {
@@ -57,15 +69,4 @@ public class WeatherPresenter {
         }
     }
 
-    public void getWeather(WeatherArguments weatherArguments) {
-        if (weatherArguments.getLocation() != null) {
-            geocodingData.getCoordinates(weatherArguments.getLocation());
-        } else if (weatherArguments.getCoordinates() != null) {
-            geocodingData.setLatitude(weatherArguments.getCoordinates().get(0));
-            geocodingData.setLongitude(weatherArguments.getCoordinates().get(1));
-        } else {
-            geocodingData.getCoordinates(view.getLocation());
-        }
-        weatherData.getWeatherData(weatherAPI.makeCall(geocodingData.getLatitude(), geocodingData.getLongitude()));
-    }
 }
