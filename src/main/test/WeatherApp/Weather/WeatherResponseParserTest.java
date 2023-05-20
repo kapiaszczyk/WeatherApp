@@ -1,8 +1,10 @@
 package WeatherApp.Weather;
+
 import WeatherApp.WeatherAPI.WeatherData;
 import WeatherApp.WeatherAPI.WeatherResponseParser;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
 import java.io.FileReader;
 import java.io.IOException;
 

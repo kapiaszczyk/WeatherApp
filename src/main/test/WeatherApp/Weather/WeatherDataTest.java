@@ -2,6 +2,7 @@ package WeatherApp.Weather;
 
 import WeatherApp.WeatherAPI.WeatherData;
 import org.junit.jupiter.api.Test;
+
 import java.io.FileReader;
 import java.io.IOException;
 

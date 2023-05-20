@@ -1,10 +1,11 @@
 package WeatherApp.Presenter;
+
 import WeatherApp.Geocoding.GeocodingData;
 import WeatherApp.Util.WeatherArguments;
 import WeatherApp.Util.WeatherDataFileWriter;
+import WeatherApp.View.WeatherAppView;
 import WeatherApp.WeatherAPI.WeatherAPIClient;
 import WeatherApp.WeatherAPI.WeatherData;
-import WeatherApp.View.WeatherAppView;
 
 import java.util.List;
 

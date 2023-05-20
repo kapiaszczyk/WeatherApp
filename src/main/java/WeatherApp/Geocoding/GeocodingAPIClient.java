@@ -1,7 +1,5 @@
 package WeatherApp.Geocoding;
 
-import WeatherApp.Exceptions.EmptyAPIResponse;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
