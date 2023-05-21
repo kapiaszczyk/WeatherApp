@@ -111,10 +111,6 @@ public class WeatherData {
         return response;
     }
 
-    public void setResponse(String response) {
-        this.response = response;
-    }
-
     public void setupWeatherData(String response) {
         this.response = response;
         getWeatherData();

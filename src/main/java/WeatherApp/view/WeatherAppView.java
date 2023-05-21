@@ -2,15 +2,9 @@ package WeatherApp.view;
 
 import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;
-import java.util.Scanner;
 
 public class WeatherAppView {
 
-    public String getLocation() {
-        System.out.println("Enter a location: ");
-        Scanner scanner = new Scanner(System.in);
-        return scanner.nextLine();
-    }
     public void printWeatherData(String location,
                                  String description,
                                  String temperature,

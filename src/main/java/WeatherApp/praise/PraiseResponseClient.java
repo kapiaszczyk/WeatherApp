@@ -26,13 +26,14 @@ public class PraiseResponseClient {
 
         try {
             response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
+        } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }
 
-        return (response.body());
+        if (response != null) {
+            return (response.body());
+        }
+        else throw new RuntimeException();
 
     }
 

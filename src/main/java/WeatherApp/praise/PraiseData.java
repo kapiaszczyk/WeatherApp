@@ -9,7 +9,6 @@ public class PraiseData {
     private String insult;
     private String name;
     private String weatherConditions;
-    private String defaultReason = "you called the OpenWeatherAPI for no good reason";
     private Map<String, String> weatherRelatedReasons = new HashMap<>();
 
     public PraiseData() {
@@ -36,10 +35,6 @@ public class PraiseData {
         this.weatherConditions = weatherConditions;
     }
 
-    public String getWeatherConditions() {
-        return weatherConditions;
-    }
-
     public void setupMap() {
         weatherRelatedReasons.put("Drizzle", "I hope the weather will get worse");
         weatherRelatedReasons.put("Thunderstorm", "I hope you will try to fly a kite during a thunderstorm");
@@ -62,7 +57,7 @@ public class PraiseData {
         if (weatherRelatedReasons.containsKey(weatherConditions)) {
             return weatherRelatedReasons.get(weatherConditions);
         } else {
-            return defaultReason;
+            return "you called the OpenWeatherAPI for no good reason";
         }
     }
 

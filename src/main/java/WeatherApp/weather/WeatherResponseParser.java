@@ -2,9 +2,6 @@ package WeatherApp.weather;
 
 import org.json.JSONObject;
 
-import java.io.FileWriter;
-import java.io.IOException;
-
 public class WeatherResponseParser {
 
     private String location;
@@ -66,13 +63,4 @@ public class WeatherResponseParser {
         return String.format("%.2f", tempC);
     }
 
-    private void printResponse(String response) {
-        try {
-            FileWriter fileWriter = new FileWriter("src/main/test/WeatherAPITestData.JSON");
-            fileWriter.write(response);
-            fileWriter.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 }
