@@ -32,11 +32,23 @@ public class ArgumentParser {
                 System.exit(0);
             }
             if (cmd.hasOption("l")) {
-                weatherArguments.setLocation(cmd.getOptionValue("l"));
+                String [] tempLocation = cmd.getOptionValues("l");
+                StringBuilder sb = new StringBuilder();
+                for (String s : tempLocation) {
+                    sb.append(s);
+                    sb.append(" ");
+                }
+                weatherArguments.setLocation(sb.toString());
             }
             if (cmd.hasOption("c")) {
-                String[] tempCoordinates = cmd.getOptionValue("c").split(",");
-                List<String> coordinates = Arrays.asList(tempCoordinates);
+                String[] tempCoordinates = cmd.getOptionValues("c");
+                for (String s : tempCoordinates) {
+                    System.out.println(s);
+                }
+                List<String> coordinates = new ArrayList<>(Arrays.asList(tempCoordinates));
+                for (String s : coordinates) {
+                    System.out.println(s);
+                }
                 weatherArguments.setCoordinates(coordinates);
             }
             if (cmd.hasOption("u")) {
