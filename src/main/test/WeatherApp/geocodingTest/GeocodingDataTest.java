@@ -1,5 +1,6 @@
-package WeatherApp.Geocoding;
+package WeatherApp.geocodingTest;
 
+import WeatherApp.geocoding.GeocodingData;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

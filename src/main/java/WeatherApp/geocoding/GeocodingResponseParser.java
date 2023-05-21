@@ -1,4 +1,4 @@
-package WeatherApp.Geocoding;
+package WeatherApp.geocoding;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -27,14 +27,14 @@ public class GeocodingResponseParser {
 
     public void getData(String response) {
         if (response == null || response.isEmpty() || response.trim().isEmpty()) {
-            throw new IllegalArgumentException("Geocoding API response is empty");
+            throw new IllegalArgumentException("geocoding API response is empty");
         }
         parseJSON(response);
     }
 
     private void parseJSON(String response) {
         if (response.isEmpty() || response == null || response.trim().isEmpty()) {
-            throw new IllegalArgumentException("Geocoding API response is empty");
+            throw new IllegalArgumentException("geocoding API response is empty");
         }
         try {
             JSONArray jsonArray = new JSONArray(response);
@@ -43,7 +43,7 @@ public class GeocodingResponseParser {
             lon = (obj.getBigDecimal("lon")).toString();
             placeName = obj.getString("name");
         } catch (Exception e) {
-            throw new IllegalArgumentException("Geocoding API response is invalid");
+            throw new IllegalArgumentException("geocoding API response is invalid");
         }
     }
 

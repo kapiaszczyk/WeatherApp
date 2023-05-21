@@ -1,4 +1,4 @@
-package WeatherApp.Util;
+package WeatherApp.util;
 
 import java.util.List;
 

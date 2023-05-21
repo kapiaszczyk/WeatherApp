@@ -1,7 +1,7 @@
 package WeatherApp;
 
-import WeatherApp.Presenter.WeatherPresenter;
-import WeatherApp.Util.ArgumentParser;
+import WeatherApp.presenter.WeatherPresenter;
+import WeatherApp.util.ArgumentParser;
 
 public class WeatherApp {
     public static void main (String[] args) {

@@ -1,6 +1,6 @@
-package WeatherApp.Weather;
+package WeatherApp.weatherTest;
 
-import WeatherApp.WeatherAPI.WeatherData;
+import WeatherApp.weather.WeatherData;
 import org.junit.jupiter.api.Test;
 
 import java.io.FileReader;

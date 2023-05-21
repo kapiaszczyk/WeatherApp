@@ -1,4 +1,4 @@
-package WeatherApp.Geocoding;
+package WeatherApp.geocoding;
 
 public class GeocodingData {
     String latitude;

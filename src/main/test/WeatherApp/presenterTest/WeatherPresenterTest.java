@@ -1,5 +1,6 @@
-package WeatherApp.Presenter;
+package WeatherApp.presenterTest;
 
+import WeatherApp.presenter.WeatherPresenter;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;

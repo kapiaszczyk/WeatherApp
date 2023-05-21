@@ -1,4 +1,4 @@
-package WeatherApp.WeatherAPI;
+package WeatherApp.weather;
 
 import org.json.JSONObject;
 
@@ -20,7 +20,7 @@ public class WeatherResponseParser {
 
     public void getData(String response) {
         if (response == null || response.isEmpty() || response.trim().isEmpty()) {
-            throw new IllegalArgumentException("Weather API response is empty");
+            throw new IllegalArgumentException("weatherTest API response is empty");
         }
         parseJSON(response);
     }
@@ -39,7 +39,7 @@ public class WeatherResponseParser {
             clouds = obj.getJSONObject("clouds").getNumber("all").toString();
             description = obj.getJSONArray("weather").getJSONObject(0).getString("description");
         } catch (Exception e) {
-            throw new IllegalArgumentException("Weather API response is invalid");
+            throw new IllegalArgumentException("weatherTest API response is invalid");
         }
     }
 

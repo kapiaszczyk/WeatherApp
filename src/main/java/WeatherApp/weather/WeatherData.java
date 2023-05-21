@@ -1,4 +1,4 @@
-package WeatherApp.WeatherAPI;
+package WeatherApp.weather;
 
 import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;

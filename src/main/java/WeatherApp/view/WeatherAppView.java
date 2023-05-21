@@ -1,4 +1,4 @@
-package WeatherApp.View;
+package WeatherApp.view;
 
 import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;
@@ -26,7 +26,7 @@ public class WeatherAppView {
             throw new NullPointerException("Some weather data was null");
         }
 
-        System.out.printf("Weather for %s at %s local time: %s%n", location, LocalTime.now().truncatedTo(ChronoUnit.MINUTES), description);
+        System.out.printf("weatherTest for %s at %s local time: %s%n", location, LocalTime.now().truncatedTo(ChronoUnit.MINUTES), description);
         System.out.printf("Temperature: %s Celsius degrees%n", temperature);
         System.out.printf("Humidity: %s%%%n", humidity);
         System.out.printf("Pressure: %s hPa%n", pressure);

@@ -1,5 +1,6 @@
-package WeatherApp.Geocoding;
+package WeatherApp.geocodingTest;
 
+import WeatherApp.geocoding.GeocodingResponseParser;
 import org.junit.jupiter.api.Test;
 
 import java.io.FileReader;

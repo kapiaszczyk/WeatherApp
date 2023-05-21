@@ -1,11 +1,11 @@
-package WeatherApp.Presenter;
+package WeatherApp.presenter;
 
-import WeatherApp.Geocoding.GeocodingData;
-import WeatherApp.Util.WeatherArguments;
-import WeatherApp.Util.WeatherDataFileWriter;
-import WeatherApp.View.WeatherAppView;
-import WeatherApp.WeatherAPI.WeatherAPIClient;
-import WeatherApp.WeatherAPI.WeatherData;
+import WeatherApp.geocoding.GeocodingData;
+import WeatherApp.util.WeatherArguments;
+import WeatherApp.util.WeatherDataFileWriter;
+import WeatherApp.view.WeatherAppView;
+import WeatherApp.weather.WeatherAPIClient;
+import WeatherApp.weather.WeatherData;
 
 import java.util.List;
 
@@ -79,7 +79,7 @@ public class WeatherPresenter {
             );
         }
         catch (NullPointerException e) {
-            throw new NullPointerException("Weather data was null");
+            throw new NullPointerException("weatherTest data was null");
         }
     }
 
