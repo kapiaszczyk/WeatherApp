@@ -9,11 +9,14 @@ public class WeatherArguments {
 
     private String fileName;
 
-    public WeatherArguments(String location, List<String> coordinates, String units, String fileName) {
+    private List<String> insultData;
+
+    public WeatherArguments(String location, List<String> coordinates, String units, String fileName,  List<String> insultData) {
         this.location = location;
         this.coordinates = coordinates;
         this.units = units;
         this.fileName = fileName;
+        this.insultData = insultData;
     }
 
     public WeatherArguments() {
@@ -49,5 +52,13 @@ public class WeatherArguments {
 
     public String getFileName() {
         return fileName;
+    }
+
+    public List<String> getInsultData() {
+        return insultData;
+    }
+
+    public void setInsultData(List<String> insultData) {
+        this.insultData = insultData;
     }
 }

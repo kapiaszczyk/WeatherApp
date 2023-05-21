@@ -2,6 +2,7 @@ package WeatherApp.util;
 
 import org.apache.commons.cli.*;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -16,9 +17,18 @@ public class ArgumentParser {
         parser = new DefaultParser();
         formatter = new HelpFormatter();
 
-        options.addOption("l", "location", true, "Location to get weather data for");
-        options.addOption("c", "coordinates", true, "Coordinates to get weather data for [Latitude,Longitude]");
-        options.addOption("u", "units", true, "Units to display weather data in [C or F]");
+        Option coordinates = new Option("c", "coordinates", true, "Coordinates to get weather data for [Latitude Longitude]");
+        coordinates.setArgs(2);
+        options.addOption(coordinates);
+
+        Option location = new Option("l", "location", true, "Location to get weather data for");
+        location.setArgs(2);
+        options.addOption(location);
+
+        Option insultMe = new Option("i", "insultMe", true, "Get insulted or praised by a piece of Java code [Your name][praise or insult]");
+        insultMe.setArgs(2);
+        options.addOption(insultMe);
+
         options.addOption("w", "writeToFile", true, "Write weather data to file");
         options.addOption("h", "help", false, "Display help");
     }
@@ -51,11 +61,13 @@ public class ArgumentParser {
                 }
                 weatherArguments.setCoordinates(coordinates);
             }
-            if (cmd.hasOption("u")) {
-                weatherArguments.setUnits(cmd.getOptionValue("u"));
-            }
             if (cmd.hasOption("w")) {
                 weatherArguments.setWriteToFile(cmd.getOptionValue("w"));
+            }
+            if (cmd.hasOption("i")) {
+                String[] tempInsult = cmd.getOptionValues("i");
+                List<String> insult = new ArrayList<>(Arrays.asList(tempInsult));
+                weatherArguments.setInsultData(insult);
             }
         } catch (ParseException e) {
             System.out.println("Error parsing command line arguments");

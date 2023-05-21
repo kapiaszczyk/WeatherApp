@@ -26,7 +26,7 @@ public class WeatherAppView {
             throw new NullPointerException("Some weather data was null");
         }
 
-        System.out.printf("weatherTest for %s at %s local time: %s%n", location, LocalTime.now().truncatedTo(ChronoUnit.MINUTES), description);
+        System.out.printf("Weather for %s at %s local time: %s%n", location, LocalTime.now().truncatedTo(ChronoUnit.MINUTES), description);
         System.out.printf("Temperature: %s Celsius degrees%n", temperature);
         System.out.printf("Humidity: %s%%%n", humidity);
         System.out.printf("Pressure: %s hPa%n", pressure);
@@ -35,5 +35,13 @@ public class WeatherAppView {
         System.out.printf("Clouds: %s%%%n", clouds);
         System.out.printf("Sunrise: %s local time%n", sunrise);
         System.out.printf("Sunset: %s local time%n", sunset);
+    }
+
+    public void warnUser() {
+        System.out.println("You asked for it...");
+    }
+
+    public void printInsult(String insult) {
+        System.out.println(insult);
     }
 }

@@ -18,6 +18,8 @@ public class WeatherResponseParser {
     private String clouds;
     private String description;
 
+    private String mainDescription;
+
     public void getData(String response) {
         if (response == null || response.isEmpty() || response.trim().isEmpty()) {
             throw new IllegalArgumentException("weatherTest API response is empty");
@@ -38,6 +40,7 @@ public class WeatherResponseParser {
             sunset = obj.getJSONObject("sys").getNumber("sunset").toString();
             clouds = obj.getJSONObject("clouds").getNumber("all").toString();
             description = obj.getJSONArray("weather").getJSONObject(0).getString("description");
+            mainDescription = obj.getJSONArray("weather").getJSONObject(0).getString("main");
         } catch (Exception e) {
             throw new IllegalArgumentException("weatherTest API response is invalid");
         }
@@ -54,6 +57,7 @@ public class WeatherResponseParser {
         weatherData.setSunset(sunset);
         weatherData.setClouds(clouds);
         weatherData.setDescription(description);
+        weatherData.setMainDescription(mainDescription);
     }
 
     private String covertToCel(String temp) {

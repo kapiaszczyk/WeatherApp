@@ -7,8 +7,8 @@ public class WeatherApp {
     public static void main (String[] args) {
 
         ArgumentParser parser = new ArgumentParser();
-        WeatherPresenter presenter = new WeatherPresenter();
-        presenter.setupPresenter(parser.parse(args));
+        WeatherPresenter presenter = new WeatherPresenter(parser.parse(args));
+        presenter.setupPresenter();
         presenter.showWeather();
     }
 }

@@ -15,6 +15,7 @@ public class WeatherData {
     private String sunset;
     private String clouds;
     private String description;
+    private String mainDescription;
 
     private String response;
 
@@ -96,6 +97,14 @@ public class WeatherData {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getMainDescription() {
+        return mainDescription;
+    }
+
+    public void setMainDescription(String mainDescription) {
+        this.mainDescription = mainDescription;
     }
 
     public String getResponse() {

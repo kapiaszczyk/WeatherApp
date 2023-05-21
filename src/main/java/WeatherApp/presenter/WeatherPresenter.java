@@ -1,6 +1,8 @@
 package WeatherApp.presenter;
 
 import WeatherApp.geocoding.GeocodingData;
+import WeatherApp.praise.PraiseResponseClient;
+import WeatherApp.praise.PraiseData;
 import WeatherApp.util.WeatherArguments;
 import WeatherApp.util.WeatherDataFileWriter;
 import WeatherApp.view.WeatherAppView;
@@ -15,6 +17,9 @@ public class WeatherPresenter {
     private final WeatherData weatherData;
     private final WeatherAPIClient weatherAPI;
     private final GeocodingData geocodingData;
+    private PraiseData praiseData;
+    private PraiseResponseClient praiseResponseClient;
+    private WeatherArguments weatherArguments;
 
     public WeatherPresenter() {
         view = new WeatherAppView();
@@ -24,7 +29,21 @@ public class WeatherPresenter {
     }
 
 
-    public void setupPresenter(WeatherArguments weatherArguments) {
+    public WeatherPresenter(WeatherArguments weatherArguments) {
+        view = new WeatherAppView();
+        weatherData = new WeatherData();
+        weatherAPI = new WeatherAPIClient();
+        geocodingData = new GeocodingData();
+        praiseData = new PraiseData();
+        praiseResponseClient = new PraiseResponseClient();
+        this.weatherArguments = weatherArguments;
+    }
+
+
+    public void setupPresenter() {
+        if (weatherArguments.getInsultData() != null) {
+            view.warnUser();
+        }
         if (weatherArguments.getLocation() != null) {
             getWeather(weatherArguments.getLocation());
         } else if (weatherArguments.getCoordinates() != null) {
@@ -64,6 +83,9 @@ public class WeatherPresenter {
 
 
     public void showWeather() {
+        if (weatherArguments.getInsultData() != null) {
+            insultUser();
+        }
         try {
             view.printWeatherData(
                     weatherData.getLocation(),
@@ -81,6 +103,12 @@ public class WeatherPresenter {
         catch (NullPointerException e) {
             throw new NullPointerException("weatherTest data was null");
         }
+    }
+    public void insultUser() {
+        praiseData.setWeatherConditions(weatherData.getMainDescription());
+        praiseData.setName(weatherArguments.getInsultData().get(0));
+        praiseData.setInsult(praiseResponseClient.makeCall(praiseData.getName(), praiseData.generateReason(), weatherArguments.getInsultData().get(1)));
+        view.printInsult(praiseData.getInsult());
     }
 
 }
