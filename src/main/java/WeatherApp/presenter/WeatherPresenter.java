@@ -87,18 +87,7 @@ public class WeatherPresenter {
             insultUser();
         }
         try {
-            view.printWeatherData(
-                    weatherData.getLocation(),
-                    weatherData.getDescription(),
-                    weatherData.getTemperature(),
-                    weatherData.getHumidity(),
-                    weatherData.getPressure(),
-                    weatherData.getWindSpeed(),
-                    weatherData.getWindDirection(),
-                    weatherData.getClouds(),
-                    weatherData.getSunrise(),
-                    weatherData.getSunset()
-            );
+            view.printWeatherData(weatherData);
         }
         catch (NullPointerException e) {
             throw new NullPointerException("weatherTest data was null");
