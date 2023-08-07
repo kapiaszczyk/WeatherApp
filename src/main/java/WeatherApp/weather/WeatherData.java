@@ -129,4 +129,10 @@ public class WeatherData {
         return convertedTime.toString();
     }
 
+    public void isNull() {
+        if (location == null || description == null || temperature == null || humidity == null || pressure == null || windSpeed == null || windDirection == null || clouds == null || sunrise == null || sunset == null) {
+            throw new NullPointerException("Some weather data was null");
+        }
+    }
+
 }
