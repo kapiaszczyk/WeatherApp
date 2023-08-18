@@ -55,7 +55,6 @@ Sunset: [HH:MM] local time
 
 [![Java][Java]][Java-url]
 [![IntelliJ IDEA][IntelliJ IDEA]][IntelliJ IDEA-url]
-[![Maven][Maven]][Maven-url]
 - `org.apache.commons.cli` - for parsing command line arguments
 - `org.json` - for parsing JSON data
 
