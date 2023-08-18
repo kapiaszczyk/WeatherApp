@@ -69,5 +69,3 @@ Sunset: [HH:MM] local time
 [Java-url]: https://www.java.com/en/
 [IntelliJ IDEA]: https://img.shields.io/badge/IntelliJ_IDEA-000000.svg?style=for-the-badge&logo=intellij-idea&logoColor=white
 [IntelliJ IDEA-url]: https://www.jetbrains.com/idea/
-[Maven]: https://img.shields.io/badge/Maven-C71A36?style=for-the-badge&logo=apache-maven&logoColor=white
-[Maven-url]: https://maven.apache.org/
